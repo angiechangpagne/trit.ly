@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodejs-tinyurl-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nodejs-tinyurl
+    spec:
+      containers:
+        - name: nodejs-tinyurl-pod
+          image: angiechangpagne/tinyurl
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 8080

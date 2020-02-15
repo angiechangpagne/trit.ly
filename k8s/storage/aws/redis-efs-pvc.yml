@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: redis-tinyurl-efs-claim
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "aws-efs"
+  labels:
+    type: local
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
